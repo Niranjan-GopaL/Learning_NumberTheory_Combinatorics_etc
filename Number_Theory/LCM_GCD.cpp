@@ -18,7 +18,7 @@ ll a[arr_template_size];
 ll b[arr_template_size];
 ll c[arr_template_size];
 
-string s,t;
+string s;
 ll ans;
 
 
