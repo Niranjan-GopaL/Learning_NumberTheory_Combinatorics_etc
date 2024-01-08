@@ -18,7 +18,7 @@ void sort_0_1_2_func(vector<int>& nums) {
         freq[1]+=freq[0];  // freq array now has cumulative frequencies
         freq[2]+=freq[1];
 
-        // we do this because  :-
+        // use of cumulative freq  :-
 
         /*
                    last 0                last 1           last 2    
