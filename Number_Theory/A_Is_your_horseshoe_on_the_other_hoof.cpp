@@ -2,14 +2,17 @@
 using namespace std;
 
 #define ll             long long
-#define fi(a,b)        for(ll i=a; i<b; i++)
-#define fj(a,b)        for(ll j=a; j<b; j++)
+#define fi(a,b,c)        for(ll i=a; i<=b; i+=c)
+#define fj(a,b,c)        for(ll j=a; j<=b; j+=c)
 #define pb             push_back
 
 
+
 // global stuff will be initialized fine
-ll n,m,k,q,x,y,z;
+ll x,y,z;
+ll n,m,k,q;
 ll u,v;
+ll cnt;
 const ll arr_template_size = 1e6;
 
 // global int   arrays are initialized to 0
@@ -25,16 +28,16 @@ vector<ll> edges[arr_template_size];
 bool vis[arr_template_size];
 
 
-void solve(){
-    cin >> k;
-    fi(0,k)
-        cin >> a[i];
-    fi(0,k)
-        cout << a[i]/2 << endl;
-}
-
-
-
 int main(){
-    solve(  );
+
+    cin >> a[0] >> a[1] >> a[2]  >> a[3];
+    sort(a,a+4);
+
+    fi(1,3,1){
+        if( a[i] == a[i-1] )cnt++;
+    }
+    //  0 0, 1 1, 2 2, 3 0
+    if(cnt != 3)cout << cnt ;
+    else cout << 3;
+    
 }
