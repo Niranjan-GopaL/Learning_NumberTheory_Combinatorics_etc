@@ -13,29 +13,33 @@ void printVector(const vector<int>& vec) {
 
 int main() {
 
-    vector<int> myVector = { 2, 2, 2, 0, 1, 1, 0, 0, 2, 2, 2, 2, 0, 0, 1, 0, 1};
-    printVector(myVector);
+        // vector<int> myVector = { 2, 2, 2, 0, 1, 1, 0, 0, 2, 2, 2, 2, 0, 0, 1, 0, 1};
+        vector<int> myVector = { 1, 0}; // the pesky edge case
+        printVector(myVector);
 
-    int r = myVector.size() - 1 , l = 0 ;
+        int r = myVector.size() - 1 , l = 0 ;
 
-    while(l < r){
+        while(l < r){
+            while (myVector[r] == 2 && r>l ) r-- ;
+            while (myVector[l] != 2 && l<r) l++ ;
+            swap(myVector[l],myVector[r]);
+            printVector(myVector);
+            r--;l++;
+        }
+
+        // pesky edge cases needs this thing
+        l = 0, r = myVector.size() - 1;
         while (myVector[r] == 2 && r>l ) r-- ;
-        while (myVector[l] != 2 && l<r) l++ ;
-        swap(myVector[l],myVector[r]);
+
+        while(l < r){
+            while (myVector[r] == 1 && r>l ) r-- ;
+            while (myVector[l] != 1 && l<r) l++ ;
+            swap(myVector[l],myVector[r]);
+            printVector(myVector);
+            r--;l++;
+        }
+
         printVector(myVector);
-        r--;l++;
-    }
+        return 0;
 
-    l = 0;
-
-    while(l < r){
-        while (myVector[r] == 1 && r>l ) r-- ;
-        while (myVector[l] != 1 && l<r) l++ ;
-        swap(myVector[l],myVector[r]);
-        printVector(myVector);
-        r--;l++;
-    }
-
-    printVector(myVector);
-    return 0;
 }
