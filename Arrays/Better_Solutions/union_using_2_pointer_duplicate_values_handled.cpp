@@ -11,6 +11,11 @@ void printVector(vec<int>& v) {
     cout << endl;
 }
 
+// we use a.size() and b.size() wayy too many times ;
+//  m = a.size() ; n = b.size() is the way to go
+
+
+
 // fails for the test case :-
 //      vector<int> arr1 = {1, 2, 2, 2, 3};    
 //      vector<int> arr2 = {2, 3, 3, 4, 5, 5}; 
