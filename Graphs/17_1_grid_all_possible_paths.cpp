@@ -25,6 +25,23 @@ int dfs(int r, int c, string path){
         vis[r+1][c] = 0;
     }
 
+    if(is_valid(r-1,c)){
+        vis[r-1][c] = 1;
+        dfs(r-1,c,path+"D");
+        vis[r-1][c] = 0;
+    }
+
+    if(is_valid(r,c-1)){
+        vis[r][c-1] = 1;
+        dfs(r,c-1,path+"L");
+        vis[r][c-1] = 0;
+    }
+
+    if(is_valid(r,c+1)){
+        vis[r][c+1] = 1;
+        dfs(r,c+1,path+"R");
+        vis[r][c+1] = 0;
+    }
 
 }
 

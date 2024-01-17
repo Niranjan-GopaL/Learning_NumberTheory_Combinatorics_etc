@@ -65,12 +65,4 @@ int main(){
     root.left->left->right->val = 9;
     root.left->right-> left->val = 10;
     root.right->right->right->val = 11;
-
-
-
 }
-
-
-
-
-
