@@ -133,6 +133,41 @@ void right_view(TreeNode* root){
 }
 
 
+void top_view(TreeNode* root){
+
+    queue<pair<TreeNode*,int> >queue_left_view; queue_left_view.push({root,0});
+    queue<pair<TreeNode*,int> >queue_right_view; queue_right_view.push({root,0});
+
+    int level=0, required_level=0 ; vector<int>left_view;
+    while(!queue_left_view.empty()){
+        root = queue_left_view.front().f ; level = queue_left_view.front().s ; queue_left_view.pop();
+        if(level==required_level){left_view.pb(root->val); required_level++;}
+        if(root->left)queue_left_view.push( {root->left, level+1});
+        if(root->right)queue_left_view.push({root->right, level+1});
+    }
+    cout << "\n";
+    int l=0, r=left_view.size()-1 ;
+    while(l<r){swap(left_view[l],left_view[r]); l++; r--;}
+
+    vector<int>right_view; required_level = 0;
+    while(!queue_right_view.empty()){
+        root = queue_right_view.front().f ; level = queue_right_view.front().s ; queue_right_view.pop();
+        if(level==required_level){right_view.pb(root->val) ; required_level++;}
+        if(root->right)queue_right_view.push({root->right, level+1});
+        if(root->left)queue_right_view.push( {root->left, level+1});
+    }
+
+    for(int i=0;i<left_view.size()-1;i++)cout << left_view[i] << " " ;
+    for(int i=0;i<right_view.size();i++) cout << right_view[i] << " ";
+}
+
+
+
+
+
+
+
+
 int get_height(TreeNode* root){
     queue<pair<TreeNode*,int> >q; q.push({root,0});
     int level=0, max_level=0 ;
@@ -178,6 +213,9 @@ int main(){
     // right_view(&root);    
     
     // get_height(&root);
+
+    // top_view(&root);
+
 
 
     // Don't forget to deallocate the memory to avoid memory leaks

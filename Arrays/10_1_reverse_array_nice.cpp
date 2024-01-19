@@ -21,10 +21,7 @@ void printArray(int arr[], int size)
 
 void recursive_reverse(int arr[], int l, int r){
     if (l==r) return;
-    if (l>r){
-        swap(arr[l],arr[r]);
-        return;
-    }
+    if (l>r){ swap(arr[l],arr[r]);return; }
     swap( arr[l], arr[r]);
     l++; r--;
     recursive_reverse(arr,l,r);
