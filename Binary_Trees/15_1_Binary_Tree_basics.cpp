@@ -108,6 +108,8 @@ TreeNode* create_mirror_Tree(TreeNode* root){
     return *temp_root ;
 }
 
+
+
 void left_view(TreeNode* root){
     queue<pair<TreeNode*,int> >q; q.push({root,0});
     int level=0, required_level=0 ;
@@ -120,9 +122,20 @@ void left_view(TreeNode* root){
     }
 }
 
+
+
 void right_view(TreeNode* root){
- 
+     queue<pair<TreeNode*,int> >q; q.push({root,0});
+    int level=0, required_level=0 ;
+
+    while(!q.empty()){
+        root = q.front().f ; level = q.front().s ; q.pop();
+        if(level==required_level){cout << root->val << " " ; required_level++;}
+        if(root->right)q.push({root->right, level+1});
+        if(root->left)q.push( {root->left, level+1});
+    }
 }
+
 
 
 void top_view(TreeNode* root){
@@ -152,7 +165,6 @@ void top_view(TreeNode* root){
     for(int i=0;i<left_view.size()-1;i++)cout << left_view[i] << " " ;
     for(int i=0;i<right_view.size();i++) cout << right_view[i] << " ";
 }
-
 
 
 
@@ -188,6 +200,38 @@ void zig_zag_traversal(TreeNode* root){
     }
 
     for(int i: zig_zag)cout << i << " " ;
+}
+
+
+
+void diagonal_traversal(TreeNode* root){
+
+    TreeNode* temp = root ;
+    // TreeNode* temp = root , curr ; //[ !! here curr is a TreeNode AND NOT A TreeNode* !!
+    TreeNode* curr;
+
+
+    int count = 1, max_diagonals = 0, i = 0;
+    // handle count = 0
+
+
+    while(!temp->left){temp = temp->left;max_diagonals++;}
+    vector<int> ans;
+    while(!temp){temp = temp->left;max_diagonals++;}
+
+    while(count < max_diagonals){
+         while(temp){
+            while(i<count){
+                curr = temp->left ; i++ ;
+            }
+            while(curr){
+                ans.pb(curr->val);curr = curr->right ;
+            }
+            temp = temp->right ;
+         }
+         count++; temp = root;
+    }
+
 }
 
 
