@@ -37,6 +37,9 @@ bool has_2_Sum(int A[], int arr_size, int sum){
 // this triplets mean that same index can be chosen AGAIN
 // with replacement 
 int* has_triplets_with_sum_X(int a[], int x, int n){
+    // int m = len(a); // this gives the WRONG COUNT OF NUMBER OF ELEMENTS IN a1
+    // cout << "THE SIZE INSIDE FUNCTION IS ---------------> " << m <<"\n\n";
+
     sort(a,a+n);
     cout << "sorted :- " ;
     for(int i=0;i<n;i++)cout << a[i] << " ";
@@ -60,6 +63,12 @@ int* has_triplets_with_sum_X(int a[], int x, int n){
     }
     return nullptr;
 }
+
+
+
+
+
+
 
 
 // 何様　ですか？

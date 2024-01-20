@@ -44,6 +44,7 @@ string is_A_subset_B(int* A, int n, int* B, int m){
 
 // In O(1) space and O(nlogn + mlogm) complexity
 string isSubset(int a1[], int n, int a2[], int m) {
+
     // Sorting ARRAYS !!!
     sort(a1,a1+n); sort(a2,a2+m);
 
@@ -60,6 +61,9 @@ string isSubset(int a1[], int n, int a2[], int m) {
 int main(){
     int A[] = {1,2,3,4,5};
     int B[] = {2,10,3,4,5,1,100,34,3,3};
+
+    len(A); // <-- this would yield correct count of numbers; but the moment you do len(A) INSIDE THE FUNCTION 
+            // that recieves the SAME ARRAY as param it does not work
     cout << "\nA is subset of B? -->  " <<  is_A_subset_B(A,len(A) ,B, len(B) ) << "\n" ;
     cout << "\nA is subset of B? -->  " <<  isSubset(A,len(A) ,B, len(B) );
     return 0;
