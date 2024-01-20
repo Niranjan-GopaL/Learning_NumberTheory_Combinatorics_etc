@@ -121,15 +121,7 @@ void left_view(TreeNode* root){
 }
 
 void right_view(TreeNode* root){
-    queue<pair<TreeNode*,int> >q; q.push({root,0});
-    int level=0, required_level=0 ;
-
-    while(!q.empty()){
-        root = q.front().f ; level = q.front().s ; q.pop();
-        if(level==required_level){cout << root->val << " " ; required_level++;}
-        if(root->right)q.push({root->right, level+1});
-        if(root->left)q.push( {root->left, level+1});
-    }
+ 
 }
 
 
@@ -164,7 +156,39 @@ void top_view(TreeNode* root){
 
 
 
+void zig_zag_traversal(TreeNode* root){
 
+    queue<pair<TreeNode*,int> >queue_left; queue_left.push({root,0});
+    queue<pair<TreeNode*,int> >queue_right; queue_right.push({root,0});
+
+    int level=0 ; vector< pair<TreeNode*,int> >left_level;
+    while(!queue_left.empty()){
+        root = queue_left.front().f ; level = queue_left.front().s ; queue_left.pop();
+        left_level.pb({root,level});
+        if(root->left)queue_left.push( {root->left, level+1});
+        if(root->right)queue_left.push({root->right, level+1});
+    }
+
+    vector< pair<TreeNode*,int> >right_level;
+    while(!queue_right.empty()){
+        root = queue_right.front().f ; level = queue_right.front().s ; queue_right.pop();
+        right_level.pb({root,level});
+        if(root->right)queue_right.push({root->right, level+1});
+        if(root->left)queue_right.push( {root->left, level+1});
+    }
+    vector<int> zig_zag;
+    // toggling from which vector we take in the elements
+    // every time we get to an element with NEXT_LEVEL, toggle the thing
+    int toggle=0, next_level =1;
+    int n = left_level.size();
+    for(int i=0;i<n;i++){
+        if(left_level[i].s == next_level){ toggle = !toggle ; next_level++; }
+        if(!toggle) zig_zag.pb(left_level[i].f->val);
+        else zig_zag.pb(right_level[i].f->val);
+    }
+
+    for(int i: zig_zag)cout << i << " " ;
+}
 
 
 
@@ -215,6 +239,8 @@ int main(){
     // get_height(&root);
 
     // top_view(&root);
+
+    // zig_zag_traversal(&root);
 
 
 

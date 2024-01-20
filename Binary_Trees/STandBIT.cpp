@@ -62,8 +62,7 @@ ST[p] = ST[2 * p + 2];
 }
 
 
-int 
-RMQ1 (int *ST, int A[], int n, int ss, int se, int l, int r, int i) 
+int RMQ1 (int *ST, int A[], int n, int ss, int se, int l, int r, int i) 
 {
 
     // If segment is inside the given range , then return the min of the segment
@@ -88,32 +87,20 @@ if (A[m1] < A[m2]) return m1;
 
 
  
-int 
-RMQ (int *ST, int A[], int n, int l, int r) 
-{
- 
+int RMQ (int *ST, int A[], int n, int l, int r) {
     // Check for erroneous input values
-    if (l < 0 || r > n - 1 || l > r)    {
-      
- cout << "Invalid Input";
- 
-return -1;}
-  
- return RMQ1 (ST, A, n, 0, n - 1, l, r, 0);
-
+    if (l < 0 || r > n - 1 || l > r)    {cout << "Invalid Input"; return -1;}
+    return RMQ1 (ST, A, n, 0, n - 1, l, r, 0);
 }
 
 
-int *
-constructST (int A[], int n) {
+int * constructST (int A[], int n) {
     int i; int *ST = new int[2 * n - 1];
     for (i = n - 1; i < 2 * n - 1; ++i)ST[i] = i - n + 1;
-
     i = n - 2;
-
     while (i > -1){
         if (A[ST[2 * i + 1]] < A[ST[2 * i + 2]]) ST[i] = ST[2 * i + 1];
-       else ST[i] = ST[2 * i + 2];
+        else ST[i] = ST[2 * i + 2];
         i--;
     }
     return ST;
