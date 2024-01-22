@@ -5,6 +5,8 @@ using namespace std;
 #define pb      push_back
 #define f       first
 #define s       second
+#define len(A)  sizeof(A) / sizeof(A[0])
+
 
  struct TreeNode {
      int val;
@@ -17,55 +19,34 @@ using namespace std;
      TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  };
 
-// 私　の　algorithm　；
-// ternary　オペラと　元請も　　ツヨ　　です　；
-pair<int,int> dfs(TreeNode* root){
-    if(!root){ return {1,0}; }
 
-    auto left_tree = dfs(root->left) ; auto right_tree = dfs(root->right) ;
-    // ( children node is balanced )  and (height difference between left and right is at most 1) => BALANCED
-    // SUPER POWER OF TERNARY OPERATOR
-    int balanced = left_tree.f  &&  right_tree.f &&  ( abs(left_tree.s - right_tree.s) <= 1) ? 1 : 0 ;
-    return {balanced , 1 + max( right_tree.s, left_tree.s)} ;
+void diagonal_traversal(TreeNode* root){
+    if (!root) {
+        cout << "The tree is empty.\n";
+        return;
+    }
+
+    queue<TreeNode*> q; q.push(root);
+    // this RETURNS FALSE!! obviously since queue is NOT EMPTY
+    cout << q.empty() << "\n" ;
+    
+    while(!q.empty()){
+        root = q.front() ; q.pop();
+        cout << "\n-------- QUEUE POPPED " << root->val << "\n" ;
+            while(root){
+                cout << root->val << " ";
+                if(root->left)q.push(root->left);
+                root = root->right ;
+            }
+    }
+
+
 }
-
-
-// 「Striver」 の　 美しい　居キュ　です　
-//　二　code lines added to get_height algorithm
-// it works exactly equivalent to above code
-int dfs_(TreeNode* node){
-    if(!node) return 0;
-    int left_height = dfs_(node->left); int right_height = dfs_(node->right) ; 
-
-    // this one line is REALLY GOOD !!
-    if( left_height == -1 || right_height == -1 || abs(left_height-right_height) >1 ) return -1;
-
-    return 1 + max(left_height, right_height) ;
-}
-
-
-bool is_balanced(TreeNode* root){
-    return dfs(root).first ;  // my_dfs
-    // return dfs_(root) != -1 ; //striver's methode
-}
-
-
-
-
-// you need to keep passing path_sum, max_sum parameter
-void get_path_sum();
-
-
-
-
-
-
-
 
 
 
 int main(){
-
+    
     TreeNode root(1);
     root.left  = new TreeNode(2);
     root.right = new TreeNode(3);
@@ -78,10 +59,9 @@ int main(){
     root.left->left->left    = new TreeNode(8);
     root.left->left->right   = new TreeNode(9);
     root.left->right->left   = new TreeNode(10);
-    root.right->right->right = new TreeNode(11);
+    root.left->right->right = new TreeNode(11);
     
-    cout << "IS THE TREE BALANCED ? " << is_balanced(&root) ;
-
+    diagonal_traversal(&root);
 
     // Don't forget to deallocate the memory to avoid memory leaks
     // Implement a proper destructor or use smart pointers for automatic memory management
@@ -96,3 +76,4 @@ int main(){
     delete root.left;
     delete root.right;
 }
+
