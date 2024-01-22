@@ -7,6 +7,8 @@ using namespace std;
 #define s       second
 #define len(A)  sizeof(A) / sizeof(A[0])
 
+template <typename T> const T& max(const T& pA, const T& pB, const T& pC)
+{ return max(pA, max(pB, pC)); }
 
  struct TreeNode {
      int val;
@@ -19,31 +21,35 @@ using namespace std;
  };
 
 
+/*
 
-// in gfg there is another way to do this using maps
-//  we need to print each diagonal in each line ;
-// this impl doesn't do that
-void diagonal_traversal(TreeNode* root){
-    if (!root) { cout << "The tree is empty.\n"; return; }
-    queue<TreeNode*> q; q.push(root);
-    // this RETURNS FALSE!! obviously since queue is NOT EMPTY
-    cout << q.empty() << "\n" ;
-    
-    while(!q.empty()){
-        root = q.front() ; q.pop();
-        cout << "\n-------- QUEUE POPPED " << root->val << "\n" ;
-            while(root){
-                cout << root->val << " ";
-                if(root->left)q.push(root->left);
-                root = root->right ;
-            }
-    }
+   1 
+2    3
+
+each node returns the sum of the tree to which it is a root of 
+
+*/
+
+int max_sum;
+int dfs(TreeNode* node, int sum){
+    if (!node) return 0;
+    int l_sum = dfs(node->left, sum);
+    int r_sum = dfs(node->right, sum);
+    sum = l_sum + r_sum + node->val ;
+    max_sum = max(l_sum, r_sum, sum) ;
+    return sum;
 }
 
 
+int max_sum_subtree(TreeNode* root){
+    dfs(root,0);
+    return max_sum;
+}
 
+//   /|
+// /  |
+// ___|
 int main(){
-    
     TreeNode root(1);
     root.left  = new TreeNode(2);
     root.right = new TreeNode(3);
@@ -56,9 +62,9 @@ int main(){
     root.left->left->left    = new TreeNode(8);
     root.left->left->right   = new TreeNode(9);
     root.left->right->left   = new TreeNode(10);
-    root.left->right->right = new TreeNode(11);
+    root.left->right->right  = new TreeNode(11);
     
-    diagonal_traversal(&root);
+    cout << max_sum_subtree(&root);
 
     // Don't forget to deallocate the memory to avoid memory leaks
     // Implement a proper destructor or use smart pointers for automatic memory management
@@ -73,4 +79,3 @@ int main(){
     delete root.left;
     delete root.right;
 }
-
