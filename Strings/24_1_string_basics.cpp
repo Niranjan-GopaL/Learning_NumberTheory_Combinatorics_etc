@@ -16,6 +16,7 @@ template <typename T> const T& max(const T& pA, const T& pB, const T& pC) {
 }
 
 // Damn this worked ?
+// for both reversing a string; checking palindrome,etc ----> TRAVERSE ONLY HALF THE ENTIRE ARRAY
 string reverse_string(string s){
     int l=0, r=s.length() - 1 ;
     while(l<r){
@@ -33,10 +34,35 @@ bool is_palindrome(string s){
 }
 
 
+bool s1_is_s2_rotated(string s1, string s2){
+    int n = s1.size();
+
+    if(n != s2.size() )return false;
+
+    int i,j;
+    while(s1[i] != s2[0] )i++ ;
+    // now we get the first i at which s1[i] ==s2[0]
+
+    for(int j=1;j<n-1;j++ ){
+        //  [------------i--]
+        //  [-j-------------]
+        // so I need to do circular rotation for i; hence MOD N; really nice idea
+        if( s1[i%n] != s2[j]  ) return false;
+        i++;
+    }
+    return true;
+}
+
+
 
 int main(){
     string s; cin >> s;
-    // cout << reverse_string(s)  << "\n";
-    cout << is_palindrome(s) << "\n" ;
+
+    // cout << reverse_string(s) << "\n";
+    // cout << is_palindrome(s)  << "\n" ;
+    
+    string s2; cin >> s2;
+    cout << s1_is_s2_rotated(s,s2) << "\n" ;
+
     return 0;
 }
