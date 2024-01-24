@@ -27,11 +27,16 @@ string reverse_string(string s){
     return s;
 }
 
+bool is_palindrome(string s){
+    // return !s.compare(reverse_string(s)) ;
+    return s == reverse_string(s) ;
+}
 
 
 
 int main(){
     string s; cin >> s;
-    cout << reverse_string(s) ;
+    // cout << reverse_string(s)  << "\n";
+    cout << is_palindrome(s) << "\n" ;
     return 0;
 }
