@@ -62,8 +62,6 @@ void get_path_sum();
 
 
 
-
-
 int main(){
 
     TreeNode root(1);

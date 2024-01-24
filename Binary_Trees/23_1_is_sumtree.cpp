@@ -48,6 +48,9 @@ bool is_sum_tree(TreeNode* root){
 
 
 int main(){
+    ios::sync_with_stdio(0) ;
+    cin.tie(0);
+    
     TreeNode root(3);
     root.left  = new TreeNode(2);
     root.right = new TreeNode(1);
