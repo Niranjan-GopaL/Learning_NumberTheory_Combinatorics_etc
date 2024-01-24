@@ -36,7 +36,6 @@ bool is_palindrome(string s){
 
 bool s1_is_s2_rotated(string s1, string s2){
     int n = s1.size();
-
     if(n != s2.size() )return false;
 
     int i,j;
@@ -47,7 +46,7 @@ bool s1_is_s2_rotated(string s1, string s2){
         //  [------------i--]
         //  [-j-------------]
         // so I need to do circular rotation for i; hence MOD N; really nice idea
-        if( s1[i%n] != s2[j]  ) return false;
+        if( s1[(i+1)%n] != s2[j]  ) return false;
         i++;
     }
     return true;
@@ -58,7 +57,7 @@ bool s1_is_s2_rotated(string s1, string s2){
 int main(){
     string s; cin >> s;
 
-    // cout << reverse_string(s) << "\n";
+    // cout << reverse_string(s) << "\n" ;
     // cout << is_palindrome(s)  << "\n" ;
     
     string s2; cin >> s2;
