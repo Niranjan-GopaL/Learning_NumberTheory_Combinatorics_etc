@@ -33,7 +33,6 @@ bool is_palindrome(string* s){
     return (*s) == reverse_string(s) ;
 }
 
-
 bool s1_is_s2_rotated(string* s1, string* s2){
     int n = s1->size();
     if(n != s2->size() )return false;
@@ -115,7 +114,7 @@ int main(){
     // cout << s1_is_s2_rotated(&s,&s2) << "\n" ;
 
     // cout << has_duplicate(&s) ;
-    all_duplicate_char_constant_space(&s) ;
+    // all_duplicate_char_constant_space(&s) ;
 
     return 0;
 }
