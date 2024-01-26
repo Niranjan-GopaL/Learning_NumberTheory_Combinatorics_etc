@@ -55,7 +55,12 @@ bool s1_is_s2_rotated(string* s1, string* s2){
 }
 
 bool has_duplicate(string* s){
-    
+    unordered_map<char,int>mp;
+    for(char c : *s){
+        if(!mp.count(c)) mp[c]=1;
+        else return false;
+    }
+    return true;
 }
 
 
@@ -68,7 +73,7 @@ int main(){
     // string s2; cin >> s2;
     // cout << s1_is_s2_rotated(&s,&s2) << "\n" ;
 
-
+    // cout << has_duplicate(&s) ;
 
     return 0;
 }
