@@ -35,7 +35,15 @@ Node* reverse_ll_Iterative(Node* head) {
     head = prev; return head;
 }
 
+Node* reverse_ll_recursive(Node* head) {
+    if (head == nullptr || head->next == nullptr)  return head;
 
+    Node* rest = reverse_ll_recursive(head->next);
+    head->next->next = head;
+    head->next = nullptr;
+
+    return rest;
+}
 
 
 
@@ -57,6 +65,7 @@ int main() {
     printList(head);
 
     head = reverse_ll_Iterative(head);
+    head = reverse_ll_recursive(head);
 
     std::cout << "Reversed List: ";
     printList(head);
