@@ -63,6 +63,16 @@ bool has_duplicate(string* s){
     return true;
 }
 
+void all_duplicate_char(string* s){
+    unordered_map<char,int>mp;
+    for(char c : *s) mp[c]++;
+
+    // iterating through all key value pairs ; 
+    // THIS ---> ` it != mp.end() `  in the condition in for loop isn't valid but != is  
+    for(auto it = mp.begin() ; it != mp.end(); ++it)
+        cout << "character " << it->first << " = "  << it->second << "\n" ;
+}
+
 
 int main(){
     string s; cin >> s;
