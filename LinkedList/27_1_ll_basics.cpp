@@ -16,10 +16,14 @@ template <typename T> const T& max(const T& pA, const T& pB, const T& pC) {
 }
 
 
+
+/* 
+nullptr is the preferred way to represent a null pointer, and it was introduced in C++11. 
+It provides type safety and is INTENDED TO BE USED IN PLACE OF NULL */
 struct Node {
     int data; Node* next;
-
     Node(int value) : data(value), next(nullptr) {}
+    Node(int data) { this->data = data; next = nullptr; }
 };
 
 
