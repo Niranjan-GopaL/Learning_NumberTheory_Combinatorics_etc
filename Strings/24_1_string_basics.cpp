@@ -96,7 +96,9 @@ void all_duplicate_char_constant_space(string* s){
             ch = (*s)[i] ; sum = 1 ;
         }
         i++ ;
+        // for the very last character 
     }
+    cout << "character " << ch << " = "  << sum << "\n" ;
     // s->begin()
     // (*s)[i] 
     // all these could have been solved if you could have created a copy of the string from parameter;
@@ -113,7 +115,7 @@ int main(){
     // cout << s1_is_s2_rotated(&s,&s2) << "\n" ;
 
     // cout << has_duplicate(&s) ;
-    all_duplicate_char(&s) ;
+    all_duplicate_char_constant_space(&s) ;
 
     return 0;
 }
