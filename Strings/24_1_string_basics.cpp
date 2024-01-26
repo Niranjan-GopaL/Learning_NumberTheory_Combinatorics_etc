@@ -63,16 +63,41 @@ bool has_duplicate(string* s){
     return true;
 }
 
-void all_duplicate_char(string* s){
+// We have O(N) time and space
+// if we sacrifice on time a litte ; then we can do this in O(1) space ;
+//                                                     => answer sorting
+void all_duplicate_char(string* s){ 
     unordered_map<char,int>mp;
     for(char c : *s) mp[c]++;
-
     // iterating through all key value pairs ; 
     // THIS ---> ` it != mp.end() `  in the condition in for loop isn't valid but != is  
     for(auto it = mp.begin() ; it != mp.end(); ++it)
         cout << "character " << it->first << " = "  << it->second << "\n" ;
+
 }
 
+// THIS HAS THE WIERDEST STUFF 
+void all_duplicate_char_constant_space(string* s){ 
+    // THIS IS NOT HOW YOU SORT 
+    // sort(*s);
+   int len = s->length();
+    // Sorting the string !!
+    sort(s->begin(), s->end());
+
+    // [iiiiijjjj-------------]
+    char ch = (*s)[0]; int sum=0, i=0 ;
+    while(i<len){
+        if( (*s)[i]==ch ) sum++ ;
+        else{
+            cout << "character " << ch << " = "  << sum << "\n" ;
+            ch = (*s)[i] ; sum = 1 ;
+        }
+        i++ ;
+    }
+    // s->begin()
+    // (*s)[i] 
+    // all these could have been solved if you could have created a copy of the string from parameter;
+}
 
 int main(){
     string s; cin >> s;
