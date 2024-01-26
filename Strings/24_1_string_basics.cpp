@@ -85,11 +85,14 @@ void all_duplicate_char_constant_space(string* s){
     sort(s->begin(), s->end());
 
     // [iiiiijjjj-------------]
+
+    // 頭　悪い　です　！
     char ch = (*s)[0]; int sum=0, i=0 ;
     while(i<len){
         if( (*s)[i]==ch ) sum++ ;
         else{
             cout << "character " << ch << " = "  << sum << "\n" ;
+            // おかしい　!!
             ch = (*s)[i] ; sum = 1 ;
         }
         i++ ;
@@ -97,6 +100,7 @@ void all_duplicate_char_constant_space(string* s){
     // s->begin()
     // (*s)[i] 
     // all these could have been solved if you could have created a copy of the string from parameter;
+    // 駄目　人間　でしたー　
 }
 
 int main(){
