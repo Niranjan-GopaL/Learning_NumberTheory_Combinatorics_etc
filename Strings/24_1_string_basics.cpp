@@ -84,6 +84,7 @@ int main(){
     // cout << s1_is_s2_rotated(&s,&s2) << "\n" ;
 
     // cout << has_duplicate(&s) ;
+    all_duplicate_char(&s) ;
 
     return 0;
 }
