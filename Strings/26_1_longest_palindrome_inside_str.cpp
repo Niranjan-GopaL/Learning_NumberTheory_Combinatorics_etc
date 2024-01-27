@@ -2,7 +2,7 @@
 using namespace std;
 
 typedef long long     ll ;      
-typedef vector<int>    vi ;
+typedef vector<int>   vi ;
 typedef pair<int,int> pi ;
 
 #define pb      push_back
@@ -21,7 +21,7 @@ template <typename T> const T& max(const T& pA, const T& pB, const T& pC) {
 1. My initial Brute Force implementaion ( more than linear )
 
 [----------------]  ( for odd case )  12321
-[----------------]  ( for even case ) 123321
+[----------------]  ( for even case ) 1233211112
 i=1; 
 loop till
 if( s[i-j] == s[i+j]  ) j++ ; mx1 = max( mx1, 2*j+1)
