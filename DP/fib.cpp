@@ -30,3 +30,13 @@ Two methodes to store the results in memory
 2. Tabulation   (Bottom-up)
 */
 
+
+int look_up[__INT32_MAX__] = {0};
+/* Magic of Memoisation */
+int fib_memo(int n){
+    if(!look_up[n]){
+            if(n<=1) look_up[n]=n;
+            else look_up[n] = fib_memo(n-1) + fib_memo(n-2) ;}
+    return look_up[n];
+}
+
