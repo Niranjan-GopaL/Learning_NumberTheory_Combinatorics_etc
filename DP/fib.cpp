@@ -40,3 +40,15 @@ int fib_memo(int n){
     return look_up[n];
 }
 
+/* Simplicity of Tabulation */
+int fib_tabulation(int n){
+    int look_up[__INT32_MAX__] = {0} ;
+    look_up[0] = 0; look_up[1] = 1;
+    int i=2;
+    while(i<=n){
+        look_up[i] = look_up[i-1] + look_up[i-2];
+        i++;
+    }
+    return look_up[n];
+}
+
