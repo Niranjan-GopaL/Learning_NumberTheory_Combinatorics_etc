@@ -20,8 +20,15 @@ we are calculating fib(3) unnecessarily ;
 This implementation simply does ALREADY DONE COMPUTING AGAIN !!
 */   
 
-//  a problem has a recursive substructure ----> Optimal Sub-structure 
-// discussed later
+/*     Optimal Sub-structure 
+ When it's subpromblem's optimal solution can give the Optimal soltion of the bigger problem ;
+
+1. Shortest path problem has a substructure :-
+    Node x lies in the shortest path from u to v 
+    if  {shortest path from u to v} is a combination of  {u to x} and {x to v}
+2. All Pair shortest path problem
+
+*/
 
 
 /*
@@ -44,11 +51,18 @@ int fib_memo(int n){
 int fib_tabulation(int n){
     int look_up[__INT32_MAX__] = {0} ;
     look_up[0] = 0; look_up[1] = 1;
-    int i=2;
-    while(i<=n){
-        look_up[i] = look_up[i-1] + look_up[i-2];
-        i++;
-    }
+    for(int i=2;i<=n;i++) look_up[i] = look_up[i-1] + look_up[i-2] ;
     return look_up[n];
 }
+
+
+/* When to use loops, when to use recursion ;
+
+Tabulation  -> 1. Aviods multiple look_up checks; 2. No function call overhead that memoization has ;
+Memoization 
+    - Since it's TOP DOWN, 
+        - it only computes the subproblems that IT NEEDS.
+        - Avoids computing certain sub-problem solutions that are not needed ( Eg: Longest common subsequence )
+    - sometimes more intuitive to write ( Eg: Matrix chain multiplation )
+*/
 
