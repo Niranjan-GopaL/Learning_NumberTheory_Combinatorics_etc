@@ -2,7 +2,7 @@
 #include <random>
 using namespace std;
 
-#define n 7
+#define n 9
 int LIS(int a[]){
     int lis[n];
     for(int i=0; i<n;i++) lis[i]=1 ;
@@ -35,6 +35,9 @@ int LIS_for_understanding_purpose(int a[]){
             }
         }
     }
+
+    for(int i=0; i<n;i++) cout << LIS_ending_at_i[i] << " " ;
+
     int m=1;
     for(int i=0;i<n;i++)if( LIS_ending_at_i[i] > m) m=LIS_ending_at_i[i];
     return m;
@@ -52,7 +55,7 @@ int main(){
     for (int i = 0; i < n; ++i) cout << a[i] << " ";    
     cout << "\n" ;
 
-    int ans = LIS(a);
+    int ans = LIS_for_understanding_purpose(a);
     cout << "\nAnswer = " << ans ;
     return 0;
 }
