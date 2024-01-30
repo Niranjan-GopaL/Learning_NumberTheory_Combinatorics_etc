@@ -20,8 +20,8 @@ int main() {
     int r = myVector.size() - 1 , l = 0 ;
 
     while(l < r){
-        while (myVector[r] == 1 && r>l ) r-- ;
-        while (myVector[l] != 1 && l<r) l++ ;
+        while (myVector[r] && r>l ) r-- ;
+        while (!myVector[l] && l<r) l++ ;
         swap(myVector[l],myVector[r]);
         printVector(myVector);
         r--;l++;
