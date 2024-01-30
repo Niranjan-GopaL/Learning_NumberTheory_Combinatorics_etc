@@ -45,6 +45,33 @@ int get_majority_elem(int *a, int n){
 }
 
 
+// all you need to know
+int get_majority_elem_(int *a, int n){
+    int res=0, c=0;
+    for(int i=0; i<n; i++){
+        if(!c) res = a[i];
+        c += (res == a[i] ? 1 : -1) ;
+    }
+    return res;
+
+// My way and IT ALWAYS require soo much clutter 
+
+/*
+    int res = a[0], c = 1;
+    for(int i=1; i< n; i++){
+        if( a[i] == res)c++;
+        else{
+            if(!c){res = a[i]; c = 1;}
+            else c-- ;
+        }
+    }
+*/   
+
+}
+
+
+
+
 
 int main(){
     /* This generates array of random numbers; */
@@ -57,7 +84,8 @@ int main(){
 
     int inp[] = { 0,1,  0,2,    2,2,    2,1,    2,7,    2,1} ;
     int n = len(inp);
-    int ans = get_majority_elem(inp, n) ;
+    // int ans = get_majority_elem(inp, n) ;
+    int ans = get_majority_elem_(inp,n) ;
     cout << "Answer is = " << ans << "\n" ;
     return 0;
 }

@@ -23,8 +23,8 @@ int main() {
         while (myVector[r] && r>l ) r-- ;
         while (!myVector[l] && l<r) l++ ;
         swap(myVector[l],myVector[r]);
-        printVector(myVector);
-        r--;l++;
+        // printVector(myVector);
+        r--; l++;
     }
 
         printVector(myVector);
