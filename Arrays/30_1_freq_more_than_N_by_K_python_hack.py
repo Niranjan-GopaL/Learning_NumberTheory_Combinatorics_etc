@@ -1,6 +1,5 @@
 from collections import Counter
 
-
 def printElements(arr, n, k):
 	x = n//k
 	# Counting frequency of every element using Counter
