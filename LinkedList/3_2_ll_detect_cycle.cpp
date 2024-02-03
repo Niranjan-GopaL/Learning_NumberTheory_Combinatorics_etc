@@ -38,7 +38,34 @@ bool is_cyclic(Node* head){
     return false;
 }
 
+// Yash's BRUTE FORCE ALGOTIHM
+void remove__cycle(Node* head){
+    if(!is_cyclic(head)){ cout << "NO CYCLE TO REMOVE " ; return;}
 
+    Node *slow = head, *fast = head;
+    while(fast != nullptr){
+        cout << "SLOW : " << slow->data << "  FAST : "<< fast->data << "\n" ;
+        slow = slow->next ;
+        fast = fast->next->next ;
+        if(slow == fast ) break;
+    }
+
+    // now both slow and fast are inside the loop
+    Node* start = head;
+    slow = slow->next ;
+    // check if any node in the loop matches with start
+    // increment start whenever slow reaches back to fast
+
+    bool outerLoop = false ;
+    while (!outerLoop) {
+        while (slow != fast) {
+            if (start->data == slow->data) { outerLoop = true; break ; }
+            slow = slow->next;
+        } start = start->next;
+    }
+
+
+}
 
 void printList(Node* head) {
     while (head != nullptr) {
