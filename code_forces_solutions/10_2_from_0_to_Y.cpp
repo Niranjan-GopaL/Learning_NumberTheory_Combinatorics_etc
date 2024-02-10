@@ -19,8 +19,8 @@ int main(){
     while(t--){
         cin >> x >> y; 
         
-        // x * pow(10,p+1) % y <---- THIS IS ERROR cuz POW() double values
-        // y % x * (ll)(pow(10, p+1)+1e-9)    != y <--- this was always false ; Learnt an important LESSON
+        // x * pow(10,p+1) % y <---- THIS IS ERROR cuz POW() returns double values
+        y % x * (ll)(pow(10, p+1)+1e-9)    != y ; //<--- this was always false ; Learnt an important LESSON
         // % HAS MORE PRECEDANCE than * so the mod always happened first
         while( y % (x * (ll)(pow(10, p+1)+1e-9)  )  != y ){cout << x * pow(10,p+1) << "\n"; p++;}  
 
