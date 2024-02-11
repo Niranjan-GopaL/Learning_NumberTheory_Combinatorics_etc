@@ -1,4 +1,9 @@
+void new_loop_showcase(){
+    long long T;
+    for(;T--;){
 
+    }
+}
 
 
 // [abcdefghijklmnopqrstuvwxyz]
