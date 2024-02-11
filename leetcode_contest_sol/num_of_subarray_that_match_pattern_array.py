@@ -6,21 +6,27 @@ def f(nums, pattern):
     # nice optimisation, i -> 0 to n-m  
     # [ 0 ... n-mth index]
     for i in range(n-m):
+        flag = 1
         for k in range(m):
             # Entire logic :-
             # if pattern[k] == 1 and (the rule) was NOT followed, BREAK
             # if the inner loop broke out BEFORE reaching k = m-1 :
             # that means `the subsequence starting from i` <--- CAN'T BE VALID
 
+            # This code has a CRITICAL EDGE CASE:-
+            # if pattern is OF ONE ELEMENT, 
+            # then we can't differentiate the inner loop COMPLETING and inner loop BREAKING
+            # => So we'll have to use flag
+
             # [1,2,3,4,5,6] 
             # [1,1] 
             # the range optimisation with i removed the need of checking 
                                         #  if i + k + 1 is in range
-            if pattern[k] == 1   and   nums[i + k + 1] <= nums[i + k]   : print("K WHEN break is being called ", k ); break
-            if pattern[k] == 0   and   nums[i + k + 1] != nums[i + k]  : print("K WHEN break is being called ", k ); break
-            if pattern[k] == -1  and   nums[i + k + 1] >= nums[i + k]   : print("K WHEN break is being called ", k ); break
+            if pattern[k] == 1   and   nums[i + k + 1] <= nums[i + k]   : print("K WHEN break is being called ", k ); flag = 0 ; break
+            if pattern[k] == 0   and   nums[i + k + 1] != nums[i + k]   : print("K WHEN break is being called ", k ); flag = 0 ; break
+            if pattern[k] == -1  and   nums[i + k + 1] >= nums[i + k]   : print("K WHEN break is being called ", k ); flag = 0 ; break
         print("value of k at the end of loop : ", k)
-        if k==m-1 : count+=1; print("the subsequence start with ------> ", nums[i])
+        if k==m-1 and flag : count+=1; print("the subsequence start with ------> ", nums[i])
     return count
 
 # New knowledge : at the end of the loop the value of k is RANGE(arg) - 1 ; 
