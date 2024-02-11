@@ -22,11 +22,11 @@ def f(nums, pattern):
             # [1,1] 
             # the range optimisation with i removed the need of checking 
                                         #  if i + k + 1 is in range
-            if pattern[k] == 1   and   nums[i + k + 1] <= nums[i + k]   : print("K WHEN break is being called ", k ); flag = 0 ; break
-            if pattern[k] == 0   and   nums[i + k + 1] != nums[i + k]   : print("K WHEN break is being called ", k ); flag = 0 ; break
-            if pattern[k] == -1  and   nums[i + k + 1] >= nums[i + k]   : print("K WHEN break is being called ", k ); flag = 0 ; break
+            if pattern[k] == 1   and   nums[i + k + 1] <= nums[i + k] : print("K WHEN break is being called ", k ); flag = 0 ; break
+            if pattern[k] == 0   and   nums[i + k + 1] != nums[i + k] : print("K WHEN break is being called ", k ); flag = 0 ; break
+            if pattern[k] == -1  and   nums[i + k + 1] >= nums[i + k] : print("K WHEN break is being called ", k ); flag = 0 ; break
         print("value of k at the end of loop : ", k)
-        if k==m-1 and flag : count+=1; print("the subsequence start with ------> ", nums[i])
+        if flag : count+=1; print("the subsequence start with ------> ", nums[i])
     return count
 
 # New knowledge : at the end of the loop the value of k is RANGE(arg) - 1 ; 
