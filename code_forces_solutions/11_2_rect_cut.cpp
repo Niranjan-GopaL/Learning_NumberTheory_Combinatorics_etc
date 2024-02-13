@@ -8,21 +8,53 @@ void kotatsugame_solution(){
     int T; cin >> T;
     int A,B;
     int a,b, c,d;
+
     for(;T--;){
         cin >> A >> B;
         bool fn = false;
         for(int i=0; i<2;i++){
             if(A%2==0) {
+                // make the new rectangle
                 a=A/2; b=B*2;
                 c = A; d = B;
-                if(a>b)swap(a,b);
-                if(c>d)swap(c,d);
-                if(a!=c || b!=d)fn=true;
+
+                // c-> smaller of initial rectangle
+                if( c>d ) swap( c, d);
+                // a-> smaller of new rectangle
+                if( a>b ) swap( a, b);
+
+                // if smaller side is differnt OR 
+                if(a!=c || b!=d){fn=true; break;}
             } swap(A,B);
         }
-        cout << fn ? "YES\n" : "NO\n" ;
+
+        // THIS RETURNS THE OUTPUT OF THE TERNARY OPERATOR  // 0011110
+        // cout << fn ? "YES\n" : "NO\n" ;  
+        
+        cout << (fn ? "YES\n" : "NO\n") ; // this prints out what we want 
+        /*
+        NO
+        NO
+        YES
+        YES
+        YES
+        YES
+        NO
+        */
     }
+
 }
+
+/* TESTACASE
+7
+1 1
+2 1
+2 6
+3 2
+2 2
+2 4
+6 3
+*/
 
 void my_way(){
     ll a,b,t; cin >> t;
