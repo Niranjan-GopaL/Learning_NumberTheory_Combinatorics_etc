@@ -2,6 +2,9 @@
 using namespace std;
 
 #define ll long long
+
+// UNDERSTAND THIS AFTER LEARNING DP
+
 class Solution {
 public:
     vector<vector<int>> modifiedMatrix(vector<vector<int>>& matrix) {

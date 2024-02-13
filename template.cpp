@@ -16,8 +16,7 @@ template <typename T>  T& max( T& pA,  T& pB,  T& pC) {
 }
 
 int main(){
-    ios::sync_with_stdio(0);
-    cin.tie(0);
+    ios::sync_with_stdio(0); cin.tie(0);
 
     // a bit faster 
     int a, b;
