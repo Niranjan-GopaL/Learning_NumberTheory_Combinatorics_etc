@@ -1,3 +1,5 @@
+#pragma GCC optimize("Ofast") 
+#pragma GCC target("tune=native")
 #include <bits/stdc++.h>
 using namespace std;
 

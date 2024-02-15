@@ -1,3 +1,7 @@
+// Adding these t2 lines made the Time from 30ms to 15ms
+
+#pragma GCC optimize("Ofast") 
+#pragma GCC target("tune=native")
 #include <iostream>
 using namespace std;
 

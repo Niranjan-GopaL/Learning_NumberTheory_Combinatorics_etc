@@ -1,6 +1,23 @@
 #pragma GCC optimize("O3")
+// Higher optimization levels can result in faster code 
+// but might also increase compilation time.
+
+
 #pragma GCC optimize("unroll-loops")
+// This pragma suggests the compiler to unroll loops. 
+// Loop unrolling is a compiler optimization technique where 
+// the loop body is duplicated to reduce the overhead of loop control code 
+// and potentially increase performance
+
+
 #pragma GCC target("avx2,bmi,bmi2,popcnt,lzcnt")
+// This pragma specifies the target architecture features. 
+// In this case, it is specifying that the code is optimized for processors 
+// that support AVX2 (Advanced Vector Extensions 2), 
+// BMI (Bit Manipulation Instructions), 
+// BMI2, POPCNT (Population Count), and 
+// LZCNT (Leading Zero Count).
+
 
 #include <bits/stdc++.h>
 using namespace std;
