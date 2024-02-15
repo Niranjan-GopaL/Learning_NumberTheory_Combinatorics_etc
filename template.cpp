@@ -1,3 +1,7 @@
+#pragma GCC optimize("O3")
+#pragma GCC optimize("unroll-loops")
+#pragma GCC target("avx2,bmi,bmi2,popcnt,lzcnt")
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -10,14 +14,15 @@ typedef pair<int,int>    ii ;
 #define f       first
 #define s       second
 #define len(A)  sizeof(A) / sizeof(A[0])
+#define all(vec) (vec).begin(), (vec).end()
 
 template <typename T>  T& max( T& pA,  T& pB,  T& pC) { 
     return max(pA, max(pB, pC)); 
 }
 
-int main(){
-    ios::sync_with_stdio(0); cin.tie(0);
-
+signed main(){
+    // ios::sync_with_stdio(0); cin.tie(0);
+    // cin.tie(0)->sync_with_stdio(0);
     // a bit faster 
     int a, b;
     scanf("%d %d", &a, &b); 
