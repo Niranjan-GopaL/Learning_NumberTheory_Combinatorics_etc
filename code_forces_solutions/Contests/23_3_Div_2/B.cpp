@@ -22,7 +22,6 @@ int main(){
         for(ll i = 0;i<n;i++) {cin >> q; x[i] = abs(q) ; max_x = max(max_x, abs(q)) ;}
 
         // if( sum_a > k*n){cout << "NO\n";continue;}
-
     
 
     }   
