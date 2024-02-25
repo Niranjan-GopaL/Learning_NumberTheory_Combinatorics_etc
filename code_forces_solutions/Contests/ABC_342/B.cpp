@@ -9,6 +9,7 @@ int p[100];
 
 
 int main(){
+    cin.tie(0)->sync_with_stdio(0);
     ll n; cin >> n;
     for(int i=0; i<n;i++){cin >>p[i]; mp[p[i]] = i;}
     ll q; cin >> q;
