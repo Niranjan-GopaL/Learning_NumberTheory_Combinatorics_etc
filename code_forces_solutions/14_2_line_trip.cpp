@@ -4,9 +4,6 @@ using namespace std;
 typedef long long ll ;
 
 
-
-
-
 // 15 ms   0KB
 int a[10000];
 void initial_try(){
@@ -35,7 +32,7 @@ void initial_try(){
 
 // 32ms 0KB
 void how_is_this_worse(){
-        int t,n,r,l,x,m=-1; cin >> t;
+    int t,n,r,l,x,m=-1; cin >> t;
     while(t--){
         cin >> n >> x;
         r=0;l=0;
