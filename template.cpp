@@ -37,32 +37,23 @@ template <typename T>  T& max( T& pA,  T& pB,  T& pC) {
     return max(pA, max(pB, pC)); 
 }
 
-void __print(int x) {cerr << x;}
-void __print(long x) {cerr << x;}
-void __print(long long x) {cerr << x;}
-void __print(unsigned x) {cerr << x;}
-void __print(unsigned long x) {cerr << x;}
-void __print(unsigned long long x) {cerr << x;}
-void __print(float x) {cerr << x;}
-void __print(double x) {cerr << x;}
-void __print(long double x) {cerr << x;}
-void __print(char x) {cerr << '\'' << x << '\'';}
-void __print(const char *x) {cerr << '\"' << x << '\"';}
-void __print(const string &x) {cerr << '\"' << x << '\"';}
-void __print(bool x) {cerr << (x ? "true" : "false");}
+const ll arr_template_size = 1e6;
 
-template<typename T, typename V>
-void __print(const pair<T, V> &x) {cerr << '{'; __print(x.first); cerr << ','; __print(x.second); cerr << '}';}
-template<typename T>
-void __print(const T &x) {int f = 0; cerr << '{'; for (auto &i: x) cerr << (f++ ? "," : ""), __print(i); cerr << "}";}
-void _print() {cerr << "]\n";}
-template <typename T, typename... V>
-void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v...);}
-#ifndef ONLINE_JUDGE
-#define debug(x...) cerr << "[" << #x << "] = ["; _print(x)
-#else
-#define debug(x...)
-#endif
+// global int   arrays are initialized to 0
+ll a[arr_template_size];
+ll b[arr_template_size];
+ll c[arr_template_size];
+
+// go to snippets generator .code
+/*
+1. copy code; paste in the website; write the trigger string
+2. copy the json
+3. "configure user snipper" (cmd pallate)
+    3a. "cpp.json" ( add it there ) 
+        OR
+    3b. "new global snippet"    (available throughout all language )
+*/
+
 
 
 

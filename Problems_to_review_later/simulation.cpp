@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 typedef long long        ll ;      
 
 
-//  kotatsugame's 
+
+//  kotatsugame's solution is insane; check that out later
 
 // my brute force code --> just simulates what's gonna happen
 int main(){

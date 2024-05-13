@@ -1,8 +1,13 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <bits/stl_pair.h>
 using namespace std;
 
 typedef long long ll ;
 
+/*
+@note 
+*/
 
 void solve(){
 
@@ -18,8 +23,8 @@ void solve(){
         if(a==b)edge_case = 1;
         cin >> x1 >> y1 ;
         cin >> x2 >> y2 ;
-        vector<pair<ll,ll>> pos;
 
+        vector<pair<ll,ll>> pos;
         int n = (!edge_case) ? 2 : 1;
 
         for(int j=1;j<=n;j++){
@@ -30,12 +35,10 @@ void solve(){
 
         n = (!edge_case) ? 8 : 4;
         int c = 0 ;
-
         for(int i=0;i<n;i++){
             for(int j=0; j<4; j++){
                 if(pos[i].first + a*dir_x[j] == x2 && pos[i].second + b*dir_y[j] == y2 )c++;
             }
-
             if(!edge_case){
                 swap(a,b);
                 for(int j=0; j<4; j++){

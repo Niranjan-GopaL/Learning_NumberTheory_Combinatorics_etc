@@ -45,9 +45,3 @@ int main(){
     cout << "Time taken: " << duration.count() << " microseconds" << endl;
 }
 
-/*
-Sub : Seeking permission for getting project/presentation 
-
-We acknowledge that the fault was entirely on our part for missing the class. 
-We had met co-ordinator, and  
-*/
